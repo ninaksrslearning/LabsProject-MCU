@@ -1,17 +1,16 @@
 #include <Arduino.h>
+#include "led_module.h"
 
 void setup() {
   // put your setup code here, to run once:
-  pinMode(LED_BUILTIN, OUTPUT);
+  init_LED(LED_BUILTIN);
   Serial.begin(115200);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-  Serial.println("on");           
-  delay(1000);            
-  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-  Serial.println("off");          
-  delay(1000);                       // wait for a second
+  Serial.println("LED on");
+  on_LED(LED_BUILTIN, 500);
+  Serial.println("LED off");
+  off_LED(LED_BUILTIN, 500);
 }
